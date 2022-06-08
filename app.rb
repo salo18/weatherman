@@ -23,6 +23,7 @@ TODO:
 
 CLIENT = OpenWeather::Client.new(
   api_key: ENV['OPEN_WEATHER_API_KEY']
+  # get api key from https://home.openweathermap.org/api_keys
 )
 
 get "/" do
@@ -72,8 +73,8 @@ def get_weather(city, country, units = "imperial")
   end
 end
 
-def weekly_forecast(lattitude, longitude)
-  data = CLIENT.one_call(lat: lattitude, lon: longitude, exclude: ['minutely', 'hourly'], units: "imperial")
+def weekly_forecast(latitude, longitude)
+  data = CLIENT.one_call(lat: latitude, lon: longitude, exclude: ['minutely', 'hourly'], units: "imperial")
 end
 
 def forecast_hashes(data)
