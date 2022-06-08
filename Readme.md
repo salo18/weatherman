@@ -1,6 +1,6 @@
-This app is a basic weather check service. Input a city/country combination and get the current weather and a seven day forecast. This is my first time working with an API! 
+This app is a basic weather check service. Input a city/country combination and get the current weather and a seven day forecast. This is my first time working with an API!
 
-Inspired by Ryan Kulp over at Founder Hacker. Thanks Ryan.
+Inspired by Ryan Kulp over at FounderHacker.com. Thanks Ryan.
 
 In this project, I learned how to:
 - Work with API's using open-weather-ruby-client - https://github.com/founderhacker/open-weather-ruby-client#current-weather-for-several-cities
