@@ -1,0 +1,46 @@
+<h1>Welcome to Weatherman</h1>
+
+<p>Enter a city and country to get the weather and a seven day forecast in Farenheit.</p>
+<p>For example: "San Diego, USA"</p>
+
+<form action="/city_country_input" method="post">
+  <fieldset>
+    <input type="text" name="city" placeholder="city" id="city" maxlength="20" required>
+    <input type="text" name="country" placeholder="country" id="country" maxlength="20" required>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+<form action="/reset" method="post">
+  <fieldset>
+    <label for="reset">
+      Hit the Reset button to reset or simply search for a new city
+      <input type="submit" value="reset">
+    </label>
+  </fieldset>
+</form>
+
+<% if session[:error] %>
+      <p class="error"><%= session.delete(:error) %></p>
+<% end %>
+
+<% if session[:city] %>
+  <div class="current-weather">
+    <p><%= @city %>, <%= @country %></p>
+    <p>Lat: <%= @lat %> Lon: <%= @lon %> </p>
+    <p>Today's date: <%= @date %></p>
+    <p>Today's Temperature: <%= @current_weather["temp"] %></p>
+    <p>Feels like <%= @current_weather["feels_like"] %></p>
+  </div>
+
+  <p>7 Day Forecast</p>
+  <% @forecast_data.each do |hsh| %>
+    <p><strong><%= hsh[:day][0..9] %></strong></p>
+    <p>Day Temperature => <%= hsh[:day_temp] %></p>
+    <p>Feels Like => <%= hsh[:feels_like_day] %></p>
+    <p>Night Temperature => <%= hsh[:night_temp] %></p>
+    <p>Feels Like => <%= hsh[:feels_like_night] %></p>
+    <p>UVI => <%= hsh[:uvi] %></p>
+  <% end %>
+<% end %>
+
