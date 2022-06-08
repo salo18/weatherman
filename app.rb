@@ -25,8 +25,8 @@ CLIENT = OpenWeather::Client.new(
 
 get "/" do
   if session[:city] #if a value is assigned
-    @city = session[:city].split.map(&:capitalize).join(' ')
-    @country = session[:country].split.map(&:capitalize).join(' ')
+    @city = session[:city].strip.split.map(&:capitalize).join(' ')
+    @country = session[:country].strip.split.map(&:capitalize).join(' ')
     weather = get_weather(@city, @country)
 
     @lat = weather["coord"]["lat"]
