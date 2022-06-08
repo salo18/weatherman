@@ -23,7 +23,7 @@ TODO:
 
 CLIENT = OpenWeather::Client.new(
   api_key: ENV['OPEN_WEATHER_API_KEY']
-  # get api key from https://home.openweathermap.org/api_keys
+  # get api key here: https://home.openweathermap.org/api_keys
 )
 
 get "/" do
